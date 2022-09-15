@@ -16,6 +16,9 @@ const pkg = getPackageJson();
 (async () => {
   const event = process.env.GITHUB_EVENT_PATH ? require(process.env.GITHUB_EVENT_PATH) : {};
 
+  console.log(event);
+  console.log(process.env['INPUT_VERSION-TYPE']);
+
   if (!event.commits && !process.env['INPUT_VERSION-TYPE']) {
     console.log("Couldn't find any commits in this event, incrementing patch version...");
   }
